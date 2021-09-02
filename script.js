@@ -21,13 +21,21 @@ function clearNav(mql) {
 }
 
 function openMenu(subMenu) {
+  const newSubMenu = subMenu.replace(".", "");
   const subMenuElement = document.querySelector(subMenu);
   subMenuElement.classList.add("nav-open");
+
+  document
+    .querySelector(`.close-${newSubMenu}`)
+    .addEventListener("click", function () {
+      closeMenu(subMenu);
+    });
 }
 
 function closeMenu(subMenu) {
   const subMenuElement = document.querySelector(subMenu);
   subMenuElement.classList.remove("nav-open");
+  // subMenuElement.outerHTML = subMenuElement.outerHTML;
 }
 
 function toggleListeners(mql) {
@@ -36,31 +44,39 @@ function toggleListeners(mql) {
   const servicesMenu = document.getElementById("services");
   const supportMenu = document.getElementById("support");
   if (mql.matches) {
-    announcementMenu.addEventListener("click", function () {
-      openMenu(".sub-menu-1");
-    });
-    educationMenu.addEventListener("click", function () {
-      openMenu(".sub-menu-2");
-    });
-    servicesMenu.addEventListener("click", function () {
-      openMenu(".sub-menu-3");
-    });
-    supportMenu.addEventListener("click", function () {
-      openMenu(".sub-menu-4");
-    });
+    announcementMenu.addEventListener(
+      "click",
+      function () {
+        openMenu(".sub-menu-1");
+      },
+      { capture: true }
+    );
+    educationMenu.addEventListener(
+      "click",
+      function () {
+        openMenu(".sub-menu-2");
+      },
+      { capture: true }
+    );
+    servicesMenu.addEventListener(
+      "click",
+      function () {
+        openMenu(".sub-menu-3");
+      },
+      { capture: true }
+    );
+    supportMenu.addEventListener(
+      "click",
+      function () {
+        openMenu(".sub-menu-4");
+      },
+      { capture: true }
+    );
   } else {
-    announcementMenu.removeEventListener("click", function () {
-      openMenu(".sub-menu-1");
-    });
-    educationMenu.removeEventListener("click", function () {
-      openMenu(".sub-menu-1");
-    });
-    servicesMenu.removeEventListener("click", function () {
-      openMenu(".sub-menu-1");
-    });
-    supportMenu.removeEventListener("click", function () {
-      openMenu(".sub-menu-1");
-    });
+    announcementMenu.outerHTML = announcementMenu.outerHTML;
+    educationMenu.outerHTML = educationMenu.outerHTML;
+    servicesMenu.outerHTML = servicesMenu.outerHTML;
+    supportMenu.outerHTML = supportMenu.outerHTML;
     closeMenu(".sub-menu-1");
     closeMenu(".sub-menu-2");
     closeMenu(".sub-menu-3");

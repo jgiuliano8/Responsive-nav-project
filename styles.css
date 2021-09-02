@@ -20,11 +20,13 @@ nav,
   right: 0;
   bottom: 0;
   left: 100%;
+  background-color: white;
   transition: left 400ms;
 }
 
 .sub-menu {
   z-index: 5;
+  background-color: #e5e5e5;
 }
 
 .sub-menu > ul {
@@ -53,21 +55,29 @@ header {
 }
 
 .hamburger,
-.close-nav {
-  font-size: 1.75rem;
+.close-nav,
+.close-sub-menu-1,
+.close-sub-menu-2,
+.close-sub-menu-3,
+.close-sub-menu-4 {
+  cursor: pointer;
 }
 
-.close-nav {
-  font-size: 2rem;
-  padding: 0 0.5em;
+.close-nav,
+.close-sub-menu-1,
+.close-sub-menu-2,
+.close-sub-menu-3,
+.close-sub-menu-4 {
   align-self: flex-start;
-  border: 1px solid red;
+  padding: 0 0.5em;
+  font-size: 2rem;
 }
 
 .hamburger {
   display: block;
   margin-left: auto;
   margin-right: 1em;
+  font-size: 1.75rem;
 }
 
 .main-menu li {
@@ -89,7 +99,6 @@ a {
 .sub-menu ul {
   margin: 0;
   padding: 0;
-  background-color: #e5e5e5;
 }
 
 .sub-menu li {
@@ -104,7 +113,11 @@ a {
 
 @media screen and (min-width: 675px) {
   .hamburger,
-  .close-nav {
+  .close-nav,
+  .close-sub-menu-1,
+  .close-sub-menu-2,
+  .close-sub-menu-3,
+  .close-sub-menu-4 {
     display: none;
   }
 
@@ -116,6 +129,7 @@ a {
     bottom: unset;
     left: unset;
     margin-left: auto;
+    background-color: transparent;
   }
 
   .main-menu {
@@ -156,6 +170,7 @@ a {
   .sub-menu ul {
     margin: 0;
     padding: 0;
+    background-color: transparent;
   }
 
   .sub-menu li {
