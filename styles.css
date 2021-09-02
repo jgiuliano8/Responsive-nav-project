@@ -21,18 +21,7 @@ nav,
   bottom: 0;
   left: 100%;
   background-color: white;
-  transition: left 400ms;
-}
-
-.sub-menu {
-  z-index: 5;
-  background-color: #e5e5e5;
-}
-
-.sub-menu > ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  transition: left 600ms;
 }
 
 header {
@@ -45,13 +34,14 @@ header {
   justify-content: center;
 }
 
-.main-menu {
+.main-menu,
+.sub-menu > ul {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0;
   padding: 0;
-  text-align: center;
+  text-align: left;
 }
 
 .hamburger,
@@ -69,7 +59,7 @@ header {
 .close-sub-menu-3,
 .close-sub-menu-4 {
   align-self: flex-start;
-  padding: 0 0.5em;
+  /* padding: 0 0.5em; */
   font-size: 2rem;
 }
 
@@ -85,6 +75,8 @@ header {
   position: relative;
   letter-spacing: 1px;
   list-style: none;
+  padding: 1em 1em;
+  border-bottom: 1px dotted rgba(32, 32, 32, 0.2);
 }
 
 a {
@@ -96,19 +88,20 @@ a {
   text-transform: uppercase;
 }
 
-.sub-menu ul {
-  margin: 0;
-  padding: 0;
+.sub-menu {
+  z-index: 5;
+  background-color: #e5e5e5;
 }
 
-.sub-menu li {
-  margin: 0.5em 1em;
-}
-
-.sub-menu a:hover {
+.sub-menu a:active {
   opacity: 0.65;
 }
 
+.main-menu-title,
+.sub-menu-title {
+  padding-left: 1em;
+  opacity: 0.65;
+}
 /* Media query */
 
 @media screen and (min-width: 675px) {
